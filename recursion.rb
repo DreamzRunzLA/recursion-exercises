@@ -59,3 +59,27 @@ def deep_dup(arr)
     return ans
 end
 
+#Fibonacci
+#iterative fib(5) == 3
+def fibI(n)
+    ans = [0, 1]
+    if n < 3
+        return ans
+    end
+    (3..n).each do |num|
+        ans << ans[num-3] + ans[num-2]
+    end
+    return ans
+end
+
+#recursive
+def fibR(n)
+    if n <= 2
+        return [0, 1][0..n]
+    end
+    res = fibR(n-1)
+    res << (res[res.length-1] + res[res.length-2])
+    return res
+end
+
+
