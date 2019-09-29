@@ -48,18 +48,14 @@ end
 #Dup
 def deep_dup(arr)
     ans = []
-
     arr.each do |ele|
-        if ele == []
-            return 
-        elsif ele.is_a?(Array)
-
-            ans << deep_dup(ele)
-        else
+        if ele.is_a?(Array) != true
+            puts "recursive"
             ans << ele
+        else
+            ans << deep_dup(ele)
         end
     end
-
     return ans
-
 end
+
