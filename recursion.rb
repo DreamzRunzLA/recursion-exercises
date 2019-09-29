@@ -17,6 +17,10 @@ def range2(s,e)
     end
     return ans
 end
+###End Warmup###
+
+
+
 
 #Exponentiation#
 #version 1
@@ -30,6 +34,16 @@ end
 
 #version 2
 #You are halving the, you continue squaring it
+def exp2(base, power)
+    return 1 if power == 0
+    return base if power == 1
+    if power % 2 == 0 #even
+        return exp2(base, power/2) * exp2(base, power/2)
+    else
+        return base * exp2(base, (power-1)/2) * exp2(base, (power-1)/2)
+    end
+end
+
 
 #Dup
 def deep_dup(arr)
@@ -39,7 +53,7 @@ def deep_dup(arr)
         if ele == []
             return 
         elsif ele.is_a?(Array)
-            
+
             ans << deep_dup(ele)
         else
             ans << ele
