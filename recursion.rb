@@ -82,4 +82,23 @@ def fibR(n)
     return res
 end
 
+#binary search
+def bsearch(array, target)
+    if array.length == 1
+        if array[0] == target
+            return 0
+        else
+            return nil
+        end
+    end
+
+    middle = array.length / 2
+    if target < array[middle]
+        bsearch(array[0...middle], target)
+    elsif target > array[middle]
+        bsearch(array[middle..-1], target) + middle
+    else
+        return middle
+    end
+end
 
